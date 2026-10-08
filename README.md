@@ -51,6 +51,7 @@ The endpoint returns `200 OK` with `Content-Type: application/json`:
 ```json
 {
   "studentId": "1",
+  "studentName": "Tom",
   "licenseClass": "B",
   "basicTopics": { "attended": 8, "required": 12 },
   "specialTopics": { "attended": 1, "required": 2 },
@@ -62,11 +63,11 @@ Completion requires both `basicTopics.attended >= 12` and `specialTopics.attende
 
 ### Mock students
 
-| Student ID | Basic topics | Special topics | Completed |
-| --- | --- | --- | --- |
-| `1` | 8 / 12 | 1 / 2 | `false` |
-| `2` | 0 / 12 | 0 / 2 | `false` |
-| `3` | 12 / 12 | 2 / 2 | `true` |
+| Student ID | Student name | Basic topics | Special topics | Completed |
+| --- | --- | --- | --- | --- |
+| `2` | Julian | 0 / 12 | 0 / 2 | `false` |
+| `1` | Tom | 8 / 12 | 1 / 2 | `false` |
+| `3` | Oussama | 12 / 12 | 2 / 2 | `true` |
 
 The mock data is initialized at application startup. There are no write endpoints.
 

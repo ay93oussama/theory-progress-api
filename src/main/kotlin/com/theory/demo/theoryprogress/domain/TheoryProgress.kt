@@ -4,6 +4,7 @@ data class TheoryProgress(
     val studentId: String,
     val basicTopicsAttended: Int = 0,
     val specialTopicsAttended: Int = 0,
+    val studentName: String,
 ) {
     init {
         require(basicTopicsAttended >= 0) { "Basic topics attended must not be negative" }

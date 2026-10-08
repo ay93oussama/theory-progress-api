@@ -27,6 +27,7 @@ class TheoryProgressTests {
     ) {
         val progress = TheoryProgress(
             studentId = "1",
+            studentName = "Tom",
             basicTopicsAttended = basicTopicsAttended,
             specialTopicsAttended = specialTopicsAttended,
         )
@@ -36,7 +37,7 @@ class TheoryProgressTests {
 
     @Test
     fun `a student without lessons has zero attendance and incomplete progress`() {
-        val progress = TheoryProgress(studentId = "2")
+        val progress = TheoryProgress(studentId = "2", studentName = "Julian")
 
         assertEquals(0, progress.basicTopicsAttended)
         assertEquals(0, progress.specialTopicsAttended)
@@ -49,6 +50,7 @@ class TheoryProgressTests {
         assertFailsWith<IllegalArgumentException> {
             TheoryProgress(
                 studentId = "1",
+                studentName = "Tom",
                 basicTopicsAttended = basicTopicsAttended,
                 specialTopicsAttended = specialTopicsAttended,
             )

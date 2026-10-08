@@ -17,14 +17,15 @@ class TheoryProgressApiTests {
     @Autowired
     private lateinit var mockMvc: MockMvc
 
-    @ParameterizedTest(name = "student {0}: basic={1}, special={2}, completed={3}")
+    @ParameterizedTest(name = "student {0} ({1}): basic={2}, special={3}, completed={4}")
     @CsvSource(
-        "1, 8, 1, false",
-        "2, 0, 0, false",
-        "3, 12, 2, true",
+        "2, Julian, 0, 0, false",
+        "1, Tom, 8, 1, false",
+        "3, Oussama, 12, 2, true",
     )
     fun `given a known student when progress is requested then the API contract is returned`(
         studentId: String,
+        studentName: String,
         basicTopicsAttended: Int,
         specialTopicsAttended: Int,
         completed: Boolean,
@@ -39,6 +40,7 @@ class TheoryProgressApiTests {
                     """
                     {
                       "studentId": "$studentId",
+                      "studentName": "$studentName",
                       "licenseClass": "B",
                       "basicTopics": { "attended": $basicTopicsAttended, "required": 12 },
                       "specialTopics": { "attended": $specialTopicsAttended, "required": 2 },
